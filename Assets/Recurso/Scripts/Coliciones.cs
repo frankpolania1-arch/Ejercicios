@@ -1,24 +1,31 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Coliciones : MonoBehaviour
 {
     GameEngine Engine;
     BoxCollider2D objecto;
     Temporizador temporizador;
+
     void Start()
     {
         objecto = GetComponent<BoxCollider2D>();
+        Engine = GetComponent<GameEngine>();
 
+        temporizador = FindAnyObjectByType<Temporizador>();
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 'other' es el objeto que acaba de tocar a este objeto
-        string tagOtro = other.gameObject.tag;
-
-        // Ejemplo de uso:
         if (other.CompareTag("Player"))
         {
+            Debug.Log("¡Colisión con el jugador!");
             temporizador.ControlarTiempo(false);
+            if ( SceneManager.GetActiveScene().name == "Nivel2" )
+            {
+                Object.Destroy(gameObject);
+            }
+           
         }
     }
 }

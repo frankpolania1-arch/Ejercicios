@@ -6,19 +6,16 @@ public class Temporizador : MonoBehaviour
     private TextMeshProUGUI Reloj;
     private float segundos = 0;
     private float minutos = 0;
-
-    // Esta variable guardará si el tiempo debe avanzar o no
-    private bool estaCorriendo;
+    public bool estaCorriendo;
 
     void Start()
     {
         Reloj = GetComponent<TextMeshProUGUI>();
+        estaCorriendo = true;
     }
 
     void Update()
     {
-        ControlarTiempo(estaCorriendo);
-        // Solo llamamos a la lógica si el cronómetro está activo
         if (estaCorriendo)
         {
             segundos += Time.deltaTime;

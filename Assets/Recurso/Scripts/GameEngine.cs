@@ -7,17 +7,16 @@ using UnityEngine.SceneManagement;
 public class GameEngine : MonoBehaviour
 {
     TextMeshProUGUI text;
-    Temporizador tiempoNivel2;
     int PasosD = 0;
     int PasosI = 0;
+    int saltos = 0;
     Botones botones;
 
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        tiempoNivel2 = GetComponent<Temporizador>();
         botones = GetComponent<Botones>();
-        text.text = $"Pasos Derecha: {PasosD} \n Pasos Izquierda: {PasosI}";
+
     }
     public void CuentaPasos(int paso)
     {
@@ -32,5 +31,19 @@ public class GameEngine : MonoBehaviour
         text.text = $"Pasos Derecha: {PasosD}\nPasos Izquierda: {PasosI}";
     }
 
-
+    public void CuentaSaltos(bool saltoV)
+    {
+        if (SceneManager.GetActiveScene().name =="Nivel3")
+        {
+            if (saltoV)
+            {
+                saltos++;
+                text.text = $"Saltos: {saltos}";
+            }
+            else
+            {
+                text.text = $"Saltos: {saltos}";
+            }
+        } 
+    }
 }
