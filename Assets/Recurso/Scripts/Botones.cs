@@ -9,7 +9,7 @@ public class Botones : MonoBehaviour
 {
     Button boton;
     public Movimiento movimiento;
-    public Temporizador temporizador;
+    Temporizador temporizador;
     GameEngine engine;
     private void Start()
     {
@@ -17,7 +17,8 @@ public class Botones : MonoBehaviour
         boton = GetComponent<Button>();
         movimiento = FindAnyObjectByType<Movimiento>();
         boton.onClick.AddListener(OnClick);
-       
+        temporizador = FindAnyObjectByType<Temporizador>();
+
 
     }
 
@@ -36,6 +37,18 @@ public class Botones : MonoBehaviour
             case "3":
          
                 SceneManager.LoadScene("Nivel3");
+                break;
+            case "4":
+                SceneManager.LoadScene("Nivel4");
+                break;
+            case "5":
+                SceneManager.LoadScene("Nivel5");
+                break;
+            case "6":
+                SceneManager.LoadScene("Nivel6");
+                break;
+            case "7":
+                SceneManager.LoadScene("Menu");
                 break;
             default:
                 Debug.Log("No se encontro el nivel");

@@ -9,6 +9,8 @@ TagManager:
   - FrutaTiempo
   - Plataforma
   - Suelo
+  - Kiwi
+  - "Pi\xF1a"
   layers:
   - Default
   - TransparentFX

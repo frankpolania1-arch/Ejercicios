@@ -20,9 +20,10 @@ public class Coliciones : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("¡Colisión con el jugador!");
-            temporizador.ControlarTiempo(false);
+            
             if ( SceneManager.GetActiveScene().name == "Nivel2" )
             {
+                temporizador.ControlarTiempo(3);
                 Object.Destroy(gameObject);
             }
            
