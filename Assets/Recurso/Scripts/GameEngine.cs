@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameEngine : MonoBehaviour
 {
-    static TextMeshProUGUI text;
+    public TextMeshProUGUI text;
     int puntos = 0;
     byte vidas = 0;
     int PasosD = 0;

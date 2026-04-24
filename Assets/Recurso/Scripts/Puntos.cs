@@ -18,7 +18,16 @@ public class Puntos : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        if (other.CompareTag("Player"))
+        if (SceneManager.GetActiveScene().name == "Nivel4")
+        {
+            if (other.CompareTag("Player"))
+            {
+                Engine.text.text = ("Nivel Completado");
+                Object.Destroy(gameObject);
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
+            }
+        }
+        if (other.CompareTag("Player") && SceneManager.GetActiveScene().name == "Nivel5")
         {
             if (gameObject.tag == "Piña")
             {

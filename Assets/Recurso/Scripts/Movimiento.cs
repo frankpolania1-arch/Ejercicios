@@ -10,6 +10,8 @@ public class Movimiento : MonoBehaviour
     Rigidbody2D rb;
     public GameEngine Engine;
     BoxCollider2D suelo;
+    public SpriteRenderer render;
+    public Animator animator;
 
 
     void Start()
@@ -17,39 +19,58 @@ public class Movimiento : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         Engine = FindAnyObjectByType<GameEngine>();
+        animator = FindAnyObjectByType<Animator>();
 
         suelo = GameObject.Find("Dsuelo").GetComponent<BoxCollider2D>();
     }
 
-  
+
     void Update()
     {
-        movimiento = 0f;
 
+        // SALTO
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Dsuelo.tocandoSuelo)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         }
 
+        // MOVER DERECHA
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
+            animator.SetBool("correr",true);
             movimiento = 1f;
+            Vector3 escala = transform.localScale;
+            escala.x = Mathf.Abs(escala.x);
+            transform.localScale = escala;
 
             if (SceneManager.GetActiveScene().name == "Nivel1")
             {
                 Engine.CuentaPasos(1);
             }
         }
+
+        // MOVER IZQUIERDA
         else if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
+            animator.SetBool("correr", true);
             movimiento = -1f;
+
+            Vector3 escala = transform.localScale;
+            escala.x = -Mathf.Abs(escala.x);
+            transform.localScale = escala;
 
             if (SceneManager.GetActiveScene().name == "Nivel1")
             {
                 Engine.CuentaPasos(0);
             }
         }
+        else
+        {
+            animator.SetBool("correr", false);
+            movimiento = 0f;
+        }
+       
     }
 
     private void FixedUpdate()

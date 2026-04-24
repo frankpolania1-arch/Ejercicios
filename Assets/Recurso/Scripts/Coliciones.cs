@@ -19,14 +19,14 @@ public class Coliciones : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("¡Colisión con el jugador!");
             
             if ( SceneManager.GetActiveScene().name == "Nivel2" )
             {
                 temporizador.ControlarTiempo(3);
                 Object.Destroy(gameObject);
             }
-           
+
         }
+
     }
 }

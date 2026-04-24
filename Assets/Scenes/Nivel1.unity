@@ -2312,6 +2312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b70f3cd20f1d344989184ebd8348bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEngine
+  text: {fileID: 0}
 --- !u!1 &629344132
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3822,8 @@ MonoBehaviour:
   movimientoSpeed: 5
   fuerzaSalto: 6
   Engine: {fileID: 0}
+  render: {fileID: 1113326841}
+  animator: {fileID: 1113326840}
 --- !u!61 &1113326838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7395,7 +7398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!114 &1704266889
 MonoBehaviour:
   m_ObjectHideFlags: 0
