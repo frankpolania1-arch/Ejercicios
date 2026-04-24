@@ -12,6 +12,7 @@ public class Movimiento : MonoBehaviour
     BoxCollider2D suelo;
     public SpriteRenderer render;
     public Animator animator;
+  
 
 
     void Start()
@@ -19,7 +20,7 @@ public class Movimiento : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         Engine = FindAnyObjectByType<GameEngine>();
-        animator = FindAnyObjectByType<Animator>();
+      
 
         suelo = GameObject.Find("Dsuelo").GetComponent<BoxCollider2D>();
     }
@@ -27,6 +28,10 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
+        if (animator != null)
+        {
+            animator.SetBool("correr", true);
+        }
 
         // SALTO
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Dsuelo.tocandoSuelo)
@@ -53,6 +58,14 @@ public class Movimiento : MonoBehaviour
         // MOVER IZQUIERDA
         else if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
+            if (animator != null)
+            {
+                animator.SetBool("correr", movimiento != 0);
+            }
+            else
+            {
+                return;
+            }
             animator.SetBool("correr", true);
             movimiento = -1f;
 
@@ -67,6 +80,7 @@ public class Movimiento : MonoBehaviour
         }
         else
         {
+            if (animator == null) return;
             animator.SetBool("correr", false);
             movimiento = 0f;
         }

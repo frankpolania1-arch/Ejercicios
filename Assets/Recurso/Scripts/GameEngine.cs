@@ -1,7 +1,9 @@
+using System.IO;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.VectorGraphics;
 using Unity.VisualScripting;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -14,8 +16,18 @@ public class GameEngine : MonoBehaviour
     int PasosD = 0;
     int PasosI = 0;
     int saltos = 0;
+    int PinasC = 0;
+    int kiwisC = 0;
+    string ruta;
     GameObject jugador;
     Botones botones;
+
+    public class DatosJuego
+{
+    public int kiwis;
+    public int pinas;
+        public int total;
+}
 
     void Start()
     {
@@ -23,8 +35,31 @@ public class GameEngine : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player");
         botones = GetComponent<Botones>();
         vidas = 3;
+        ruta = Application.persistentDataPath + "/datos.json";
         Texto();
 
+    }
+    public void GuardarJuego()
+    {
+        if (SceneManager.GetActiveScene().name == "Nivel7")
+        {
+            if (string.IsNullOrEmpty(ruta))
+            {
+                ruta = Application.persistentDataPath + "/datos.json";
+            }
+
+            DatosJuego datos = new DatosJuego();
+
+            datos.pinas = PinasC;
+            datos.kiwis = kiwisC;
+            datos.total = datos.pinas + datos.kiwis;
+
+            string json = JsonUtility.ToJson(datos, true);
+
+            File.WriteAllText(ruta, json);
+
+            Debug.Log("Datos guardados en: " + ruta);
+        }
     }
     public void Texto()
     {
@@ -45,10 +80,12 @@ public class GameEngine : MonoBehaviour
         {
             case 0:
                 puntos += 5;
+                PinasC++;
                 text.text = $"Puntos: {puntos}";
                 break;
             case 1:
                 puntos += 1;
+                kiwisC++;
                 text.text = $"Puntos: {puntos}";
                 break;
 

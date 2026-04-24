@@ -251,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!114 &457720365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,7 +848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!1 &1481787378
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +984,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!114 &1506571069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,7 +1200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!114 &1654632125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,7 +1414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!114 &1876114542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,7 +1549,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Botones
   movimiento: {fileID: 0}
-  temporizador: {fileID: 0}
 --- !u!114 &2034298667
 MonoBehaviour:
   m_ObjectHideFlags: 0

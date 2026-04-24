@@ -11,6 +11,7 @@ TagManager:
   - Suelo
   - Kiwi
   - "Pi\xF1a"
+  - MelonG
   layers:
   - Default
   - TransparentFX

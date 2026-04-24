@@ -10,7 +10,7 @@ public class Coliciones : MonoBehaviour
     void Start()
     {
         objecto = GetComponent<BoxCollider2D>();
-        Engine = GetComponent<GameEngine>();
+        Engine = FindAnyObjectByType<GameEngine>();
 
         temporizador = FindAnyObjectByType<Temporizador>();
     }
@@ -24,6 +24,11 @@ public class Coliciones : MonoBehaviour
             {
                 temporizador.ControlarTiempo(3);
                 Object.Destroy(gameObject);
+            }
+            if (SceneManager.GetActiveScene().name == "Nivel5" && gameObject.tag=="MelonG")
+            {
+                Engine.GuardarJuego();
+                Destroy(gameObject);
             }
 
         }
